@@ -34,7 +34,7 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 
-export const filtersSlice = createSlice({
+export default createSlice({
     name: "filters",
     initialState: {
         search: "",
@@ -42,9 +42,14 @@ export const filtersSlice = createSlice({
         priorities: [],
     },
     reducers: {
-        searchFilterChange: () => {
-
+        searchFilterChange: (state, action) => {
+            state.search = action.payload
         },
-        
+        statusFilterChange: (state, action) => {
+            state.status = action.payload
+        },
+        prioritiesFilterChange: (state, action) => {
+            state.priorities = action.payload
+        }
     }
 });
